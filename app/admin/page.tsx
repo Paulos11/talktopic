@@ -22,35 +22,32 @@ export default function DashboardPage() {
       {/* Stats Grid */}
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
         <StatCard
-          title="Total Users"
-          value={mockDashboardStats.totalUsers}
-          icon={Users}
-          trend={mockDashboardStats.userGrowth}
+          title="Total Questions"
+          value={mockDashboardStats.totalQuestions}
+          icon={FileText}
+          trend={mockDashboardStats.questionGrowth}
           iconColor="text-blue-600"
           iconBgColor="bg-blue-100 dark:bg-blue-900/20"
         />
         <StatCard
-          title="Total Posts"
-          value={mockDashboardStats.totalPosts}
-          icon={FileText}
-          trend={mockDashboardStats.postGrowth}
+          title="Categories"
+          value={mockDashboardStats.totalCategories}
+          icon={Users}
           iconColor="text-green-600"
           iconBgColor="bg-green-100 dark:bg-green-900/20"
         />
         <StatCard
-          title="Total Comments"
-          value={mockDashboardStats.totalComments}
+          title="Total Views"
+          value={mockDashboardStats.totalViews}
           icon={MessageSquare}
-          trend={mockDashboardStats.commentGrowth}
+          trend={mockDashboardStats.viewGrowth}
           iconColor="text-purple-600"
           iconBgColor="bg-purple-100 dark:bg-purple-900/20"
         />
         <StatCard
-          title="Total Revenue"
-          value={mockDashboardStats.totalRevenue}
+          title="Pending Questions"
+          value={mockDashboardStats.pendingQuestions}
           icon={DollarSign}
-          trend={mockDashboardStats.revenueGrowth}
-          format="currency"
           iconColor="text-amber-600"
           iconBgColor="bg-amber-100 dark:bg-amber-900/20"
         />

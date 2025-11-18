@@ -1,3 +1,58 @@
+// ============================================
+// QUESTION & ANSWER PLATFORM TYPES
+// ============================================
+
+export interface Question {
+  id: string;
+  title: string;
+  slug: string;
+  question: string;
+  answer: string;
+  category: Category;
+  tags: string[];
+  relatedQuestions: string[];
+  views: number;
+  helpful: number;
+  notHelpful: number;
+  featured: boolean;
+  status: "published" | "draft" | "pending";
+  seoTitle?: string;
+  seoDescription?: string;
+  createdAt: Date;
+  updatedAt: Date;
+  author?: User;
+}
+
+export interface Category {
+  id: string;
+  name: string;
+  slug: string;
+  description: string;
+  icon?: string;
+  color?: string;
+  questionCount: number;
+  order: number;
+  parentId?: string;
+  children?: Category[];
+}
+
+export interface Tag {
+  id: string;
+  name: string;
+  slug: string;
+  questionCount: number;
+}
+
+export interface SearchResult {
+  questions: Question[];
+  totalResults: number;
+  query: string;
+}
+
+// ============================================
+// USER & ADMIN TYPES
+// ============================================
+
 export interface User {
   id: string;
   name: string;
@@ -7,29 +62,6 @@ export interface User {
   avatar?: string;
   createdAt: Date;
   lastActive: Date;
-}
-
-export interface Post {
-  id: string;
-  title: string;
-  content: string;
-  author: User;
-  category: string;
-  status: "published" | "draft" | "archived";
-  views: number;
-  likes: number;
-  comments: number;
-  createdAt: Date;
-  updatedAt: Date;
-}
-
-export interface Comment {
-  id: string;
-  postId: string;
-  author: User;
-  content: string;
-  status: "approved" | "pending" | "spam";
-  createdAt: Date;
 }
 
 export interface Analytics {
@@ -42,20 +74,12 @@ export interface Analytics {
 }
 
 export interface DashboardStats {
-  totalUsers: number;
-  totalPosts: number;
-  totalComments: number;
-  totalRevenue: number;
-  userGrowth: number;
-  postGrowth: number;
-  commentGrowth: number;
-  revenueGrowth: number;
-}
-
-export interface ChartData {
-  name: string;
-  value?: number;
-  [key: string]: any;
+  totalQuestions: number;
+  totalCategories: number;
+  totalViews: number;
+  pendingQuestions: number;
+  questionGrowth: number;
+  viewGrowth: number;
 }
 
 export interface Notification {
@@ -93,4 +117,10 @@ export interface PaginationData {
   pageSize: number;
   totalItems: number;
   totalPages: number;
+}
+
+export interface ChartData {
+  name: string;
+  value?: number;
+  [key: string]: any;
 }

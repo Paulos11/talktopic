@@ -1,4 +1,4 @@
-import type { User, Post, Comment, Notification, DashboardStats, ChartData, Analytics } from "@/types";
+import type { User, Notification, ChartData, Analytics } from "@/types";
 
 // Mock Users Data
 export const mockUsers: User[] = [
@@ -76,8 +76,8 @@ export const mockUsers: User[] = [
   },
 ];
 
-// Mock Posts Data
-export const mockPosts: Post[] = [
+// Mock Posts Data - Removed (using Q&A system now)
+export const mockPosts = [
   {
     id: "1",
     title: "Getting Started with Next.js 14",
@@ -145,8 +145,8 @@ export const mockPosts: Post[] = [
   },
 ];
 
-// Mock Comments Data
-export const mockComments: Comment[] = [
+// Mock Comments Data - Removed (using Q&A system now)
+export const mockComments = [
   {
     id: "1",
     postId: "1",
@@ -226,15 +226,13 @@ export const mockNotifications: Notification[] = [
 ];
 
 // Mock Dashboard Stats
-export const mockDashboardStats: DashboardStats = {
-  totalUsers: 1247,
-  totalPosts: 892,
-  totalComments: 3456,
-  totalRevenue: 45678.90,
-  userGrowth: 12.5,
-  postGrowth: 8.3,
-  commentGrowth: 15.7,
-  revenueGrowth: 23.4,
+export const mockDashboardStats = {
+  totalQuestions: 892,
+  totalCategories: 8,
+  totalViews: 245678,
+  pendingQuestions: 12,
+  questionGrowth: 8.3,
+  viewGrowth: 15.7,
 };
 
 // Mock Analytics Data

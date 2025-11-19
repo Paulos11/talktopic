@@ -129,6 +129,7 @@ God is not a distant, impersonal force but a loving Father who created us for re
     helpful: 1247,
     notHelpful: 23,
     featured: true,
+    questionOfTheDay: true,
     status: "published",
     seoTitle: "Who is God? Understanding God's Nature and Character",
     seoDescription: "Discover who God is according to the Bible. Learn about God's nature, attributes, and how you can know Him personally.",

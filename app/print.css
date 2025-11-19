@@ -1,0 +1,115 @@
+/* Print Stylesheet for TalkTopic */
+
+@media print {
+  /* Hide navigation and footer */
+  nav,
+  footer,
+  .no-print {
+    display: none !important;
+  }
+
+  /* Hide buttons and interactive elements */
+  button,
+  .button,
+  [role="button"] {
+    display: none !important;
+  }
+
+  /* Optimize page breaks */
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid;
+    page-break-inside: avoid;
+  }
+
+  p, blockquote, ul, ol {
+    page-break-inside: avoid;
+  }
+
+  /* Remove backgrounds and shadows */
+  * {
+    background: white !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  /* Optimize colors for print */
+  body {
+    color: #000 !important;
+    font-size: 12pt;
+    line-height: 1.5;
+  }
+
+  /* Links */
+  a {
+    color: #000 !important;
+    text-decoration: underline;
+  }
+
+  a[href]:after {
+    content: " (" attr(href) ")";
+    font-size: 10pt;
+    font-style: italic;
+  }
+
+  /* Don't show link URLs for internal navigation */
+  a[href^="/"]:after,
+  a[href^="#"]:after {
+    content: "";
+  }
+
+  /* Headers */
+  h1 {
+    font-size: 24pt;
+    margin-bottom: 16pt;
+  }
+
+  h2 {
+    font-size: 18pt;
+    margin-bottom: 12pt;
+  }
+
+  h3 {
+    font-size: 14pt;
+    margin-bottom: 10pt;
+  }
+
+  /* Remove borders */
+  * {
+    border-color: #999 !important;
+  }
+
+  /* Optimize images */
+  img {
+    max-width: 100% !important;
+    page-break-inside: avoid;
+  }
+
+  /* Show article content clearly */
+  article,
+  .prose,
+  .content {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* Page margins */
+  @page {
+    margin: 2cm;
+  }
+
+  /* Badges and tags */
+  .badge,
+  [class*="badge"] {
+    border: 1px solid #999 !important;
+    padding: 2px 6px;
+    border-radius: 3px;
+  }
+
+  /* Cards */
+  .card,
+  [class*="card"] {
+    border: 1px solid #ddd !important;
+    margin-bottom: 12pt;
+    padding: 12pt;
+  }
+}

@@ -1,3 +1,14 @@
 {
-  "extends": ["next/core-web-vitals", "standard", "plugin:tailwindcss/recommended", "prettier"]
+  "extends": ["next/core-web-vitals", "standard", "plugin:tailwindcss/recommended", "prettier"],
+  "rules": {
+    "no-undef": "off",
+    "no-unused-vars": "warn",
+    "react/no-unescaped-entities": "off",
+    "no-return-assign": "warn",
+    "no-use-before-define": "warn",
+    "@next/next/no-img-element": "warn",
+    "tailwindcss/classnames-order": "warn",
+    "tailwindcss/enforces-shorthand": "warn",
+    "tailwindcss/migration-from-tailwind-2": "warn"
+  }
 }

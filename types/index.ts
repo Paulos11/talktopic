@@ -15,12 +15,32 @@ export interface Question {
   helpful: number;
   notHelpful: number;
   featured: boolean;
+  questionOfTheDay?: boolean;
   status: "published" | "draft" | "pending";
   seoTitle?: string;
   seoDescription?: string;
+  scriptureReferences?: ScriptureReference[];
+  audioUrl?: string;
+  videoUrl?: string;
+  translations?: { [languageCode: string]: QuestionTranslation };
   createdAt: Date;
   updatedAt: Date;
   author?: User;
+}
+
+export interface QuestionTranslation {
+  title: string;
+  question: string;
+  answer: string;
+}
+
+export interface ScriptureReference {
+  book: string;
+  chapter: number;
+  verseStart: number;
+  verseEnd?: number;
+  text: string;
+  version: string; // e.g., "NIV", "KJV", "ESV"
 }
 
 export interface Category {
@@ -123,4 +143,75 @@ export interface ChartData {
   name: string;
   value?: number;
   [key: string]: any;
+}
+
+// ============================================
+// NEW FEATURES TYPES
+// ============================================
+
+export interface BlogPost {
+  id: string;
+  title: string;
+  slug: string;
+  excerpt: string;
+  content: string;
+  coverImage?: string;
+  category: string;
+  tags: string[];
+  author: User;
+  views: number;
+  featured: boolean;
+  status: "published" | "draft" | "pending";
+  seoTitle?: string;
+  seoDescription?: string;
+  createdAt: Date;
+  updatedAt: Date;
+}
+
+export interface Language {
+  code: string; // e.g., "en", "es", "fr"
+  name: string; // e.g., "English", "Español", "Français"
+  nativeName: string; // e.g., "English", "Español", "Français"
+  flag?: string; // emoji or icon
+  enabled: boolean;
+}
+
+export interface NetworkSite {
+  id: string;
+  name: string;
+  description: string;
+  url: string;
+  icon?: string;
+  category: "main" | "youth" | "kids" | "reference" | "other";
+}
+
+export interface NewsletterSubscriber {
+  id: string;
+  email: string;
+  name?: string;
+  subscribedAt: Date;
+  confirmed: boolean;
+  preferences: {
+    daily: boolean;
+    weekly: boolean;
+    questionOfTheDay: boolean;
+  };
+}
+
+export interface FAQ {
+  id: string;
+  question: string;
+  answer: string;
+  category: string;
+  order: number;
+}
+
+export interface Testimonial {
+  id: string;
+  name: string;
+  location?: string;
+  content: string;
+  rating?: number;
+  featured: boolean;
+  createdAt: Date;
 }

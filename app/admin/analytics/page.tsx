@@ -1,7 +1,6 @@
 "use client";
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Select } from "@/components/ui/select";
 import { StatCard } from "@/components/stat-card";
 import { Users, Eye, TrendingUp, Clock } from "lucide-react";
 import {
@@ -42,12 +41,16 @@ export default function AnalyticsPage() {
             Track your platform's performance and user behavior
           </p>
         </div>
-        <Select value={timeRange} onChange={(e) => setTimeRange(e.target.value)}>
+        <select
+          value={timeRange}
+          onChange={(e) => setTimeRange(e.target.value)}
+          className="h-10 rounded-md border border-input bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-ring"
+        >
           <option value="7d">Last 7 days</option>
           <option value="30d">Last 30 days</option>
           <option value="90d">Last 90 days</option>
           <option value="1y">Last year</option>
-        </Select>
+        </select>
       </div>
 
       {/* Key Metrics */}

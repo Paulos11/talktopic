@@ -6,6 +6,7 @@ import { Search, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useRouter } from "next/navigation";
+import LanguageSelector from "./language-selector";
 
 export default function PublicNav() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -22,7 +23,9 @@ export default function PublicNav() {
 
   const navLinks = [
     { href: "/", label: "Home" },
-    { href: "/categories", label: "Browse Topics" },
+    { href: "/categories", label: "Categories" },
+    { href: "/topics", label: "Topic Index" },
+    { href: "/blog", label: "Blog" },
     { href: "/about", label: "About" },
     { href: "/contact", label: "Contact" },
   ];
@@ -52,19 +55,22 @@ export default function PublicNav() {
             ))}
           </div>
 
-          {/* Search Bar */}
-          <form onSubmit={handleSearch} className="hidden md:block">
-            <div className="relative w-64">
-              <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" />
-              <Input
-                type="search"
-                placeholder="Search questions..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-9"
-              />
-            </div>
-          </form>
+          {/* Search Bar & Language Selector */}
+          <div className="hidden md:flex items-center gap-2">
+            <form onSubmit={handleSearch}>
+              <div className="relative w-64">
+                <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" />
+                <Input
+                  type="search"
+                  placeholder="Search questions..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="pl-9"
+                />
+              </div>
+            </form>
+            <LanguageSelector />
+          </div>
 
           {/* Mobile Menu Button */}
           <button
@@ -101,6 +107,9 @@ export default function PublicNav() {
                   />
                 </div>
               </form>
+              <div className="mt-4 flex justify-center">
+                <LanguageSelector />
+              </div>
             </div>
           </div>
         )}

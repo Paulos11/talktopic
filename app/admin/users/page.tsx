@@ -4,7 +4,6 @@ import { useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Select } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Avatar } from "@/components/ui/avatar";
@@ -163,18 +162,18 @@ export default function UsersPage() {
                 className="pl-9"
               />
             </div>
-            <Select value={roleFilter} onChange={(e) => setRoleFilter(e.target.value)}>
+            <select value={roleFilter} onChange={(e) => setRoleFilter(e.target.value)}>
               <option value="all">All Roles</option>
               <option value="admin">Admin</option>
               <option value="moderator">Moderator</option>
               <option value="user">User</option>
-            </Select>
-            <Select value={statusFilter} onChange={(e) => setStatusFilter(e.target.value)}>
+            </select>
+            <select value={statusFilter} onChange={(e) => setStatusFilter(e.target.value)}>
               <option value="all">All Status</option>
               <option value="active">Active</option>
               <option value="inactive">Inactive</option>
               <option value="pending">Pending</option>
-            </Select>
+            </select>
           </div>
         </CardContent>
       </Card>
@@ -335,7 +334,7 @@ export default function UsersPage() {
           </div>
           <div>
             <Label>Role</Label>
-            <Select
+            <select
               value={formData.role}
               onChange={(e) => setFormData({ ...formData, role: e.target.value as any })}
               className="mt-1.5"
@@ -343,11 +342,11 @@ export default function UsersPage() {
               <option value="user">User</option>
               <option value="moderator">Moderator</option>
               <option value="admin">Admin</option>
-            </Select>
+            </select>
           </div>
           <div>
             <Label>Status</Label>
-            <Select
+            <select
               value={formData.status}
               onChange={(e) => setFormData({ ...formData, status: e.target.value as any })}
               className="mt-1.5"
@@ -355,7 +354,7 @@ export default function UsersPage() {
               <option value="active">Active</option>
               <option value="pending">Pending</option>
               <option value="inactive">Inactive</option>
-            </Select>
+            </select>
           </div>
           <div className="flex justify-end gap-3 mt-6">
             <Button variant="outline" onClick={() => setIsCreateModalOpen(false)}>
@@ -393,7 +392,7 @@ export default function UsersPage() {
           </div>
           <div>
             <Label>Role</Label>
-            <Select
+            <select
               value={formData.role}
               onChange={(e) => setFormData({ ...formData, role: e.target.value as any })}
               className="mt-1.5"
@@ -401,11 +400,11 @@ export default function UsersPage() {
               <option value="user">User</option>
               <option value="moderator">Moderator</option>
               <option value="admin">Admin</option>
-            </Select>
+            </select>
           </div>
           <div>
             <Label>Status</Label>
-            <Select
+            <select
               value={formData.status}
               onChange={(e) => setFormData({ ...formData, status: e.target.value as any })}
               className="mt-1.5"
@@ -413,7 +412,7 @@ export default function UsersPage() {
               <option value="active">Active</option>
               <option value="pending">Pending</option>
               <option value="inactive">Inactive</option>
-            </Select>
+            </select>
           </div>
           <div className="flex justify-end gap-3 mt-6">
             <Button variant="outline" onClick={() => setIsEditModalOpen(false)}>

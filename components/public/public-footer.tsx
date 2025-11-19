@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Facebook, Twitter, Instagram, Youtube, Mail } from "lucide-react";
+import { Facebook, Twitter, Instagram, Youtube } from "lucide-react";
+import NewsletterSignup from "./newsletter-signup";
 
 export default function PublicFooter() {
   const currentYear = new Date().getFullYear();
@@ -7,14 +8,19 @@ export default function PublicFooter() {
   return (
     <footer className="border-t bg-gray-50">
       <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           {/* About */}
-          <div>
-            <h3 className="font-bold text-gray-900 mb-4">About TalkTopic</h3>
+          <div className="lg:col-span-2">
+            <div className="flex items-center gap-2 mb-4">
+              <div className="h-8 w-8 rounded-lg bg-primary flex items-center justify-center">
+                <span className="text-lg font-bold text-white">Q</span>
+              </div>
+              <span className="text-xl font-bold text-gray-900">TalkTopic</span>
+            </div>
             <p className="text-sm text-gray-600 mb-4">
-              Your trusted source for biblical answers to life's questions. We provide clear, biblical responses to help you grow in your faith.
+              Your trusted source for biblical answers to life's questions. We provide clear, Scripture-based responses to help you grow in your faith and understanding of God's Word.
             </p>
-            <div className="flex gap-3">
+            <div className="flex gap-3 mb-6">
               <a href="#" className="text-gray-400 hover:text-primary transition-colors">
                 <Facebook className="h-5 w-5" />
               </a>
@@ -28,6 +34,9 @@ export default function PublicFooter() {
                 <Youtube className="h-5 w-5" />
               </a>
             </div>
+            <div className="max-w-sm">
+              <NewsletterSignup variant="compact" />
+            </div>
           </div>
 
           {/* Popular Topics */}
@@ -36,7 +45,7 @@ export default function PublicFooter() {
             <ul className="space-y-2 text-sm">
               <li>
                 <Link href="/categories/god" className="text-gray-600 hover:text-primary transition-colors">
-                  God
+                  God & Trinity
                 </Link>
               </li>
               <li>
@@ -56,26 +65,63 @@ export default function PublicFooter() {
               </li>
               <li>
                 <Link href="/categories/prayer" className="text-gray-600 hover:text-primary transition-colors">
-                  Prayer
+                  Prayer & Worship
+                </Link>
+              </li>
+              <li>
+                <Link href="/categories/christian-living" className="text-gray-600 hover:text-primary transition-colors">
+                  Christian Living
+                </Link>
+              </li>
+              <li>
+                <Link href="/topics" className="text-gray-600 hover:text-primary transition-colors font-medium">
+                  View All Topics →
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Quick Links */}
+          {/* Resources */}
           <div>
-            <h3 className="font-bold text-gray-900 mb-4">Quick Links</h3>
+            <h3 className="font-bold text-gray-900 mb-4">Resources</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="/" className="text-gray-600 hover:text-primary transition-colors">
-                  Home
+                <Link href="/categories" className="text-gray-600 hover:text-primary transition-colors">
+                  Browse Categories
                 </Link>
               </li>
               <li>
-                <Link href="/categories" className="text-gray-600 hover:text-primary transition-colors">
-                  Browse Topics
+                <Link href="/topics" className="text-gray-600 hover:text-primary transition-colors">
+                  Topic Index
                 </Link>
               </li>
+              <li>
+                <Link href="/blog" className="text-gray-600 hover:text-primary transition-colors">
+                  Blog & Articles
+                </Link>
+              </li>
+              <li>
+                <Link href="/search" className="text-gray-600 hover:text-primary transition-colors">
+                  Search Questions
+                </Link>
+              </li>
+              <li>
+                <Link href="/submit-question" className="text-gray-600 hover:text-primary transition-colors">
+                  Submit a Question
+                </Link>
+              </li>
+              <li>
+                <Link href="/faq" className="text-gray-600 hover:text-primary transition-colors">
+                  FAQ
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* About & Support */}
+          <div>
+            <h3 className="font-bold text-gray-900 mb-4">About & Support</h3>
+            <ul className="space-y-2 text-sm">
               <li>
                 <Link href="/about" className="text-gray-600 hover:text-primary transition-colors">
                   About Us
@@ -83,47 +129,43 @@ export default function PublicFooter() {
               </li>
               <li>
                 <Link href="/contact" className="text-gray-600 hover:text-primary transition-colors">
-                  Contact
+                  Contact Us
+                </Link>
+              </li>
+              <li>
+                <Link href="/donate" className="text-gray-600 hover:text-primary transition-colors">
+                  Donate
+                </Link>
+              </li>
+              <li>
+                <Link href="/privacy" className="text-gray-600 hover:text-primary transition-colors">
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link href="/terms" className="text-gray-600 hover:text-primary transition-colors">
+                  Terms of Service
                 </Link>
               </li>
               <li>
                 <Link href="/admin" className="text-gray-600 hover:text-primary transition-colors">
-                  Admin
+                  Admin Login
                 </Link>
               </li>
             </ul>
           </div>
-
-          {/* Newsletter */}
-          <div>
-            <h3 className="font-bold text-gray-900 mb-4">Stay Connected</h3>
-            <p className="text-sm text-gray-600 mb-4">
-              Subscribe to receive weekly devotionals and updates.
-            </p>
-            <div className="flex gap-2">
-              <input
-                type="email"
-                placeholder="Your email"
-                className="flex-1 px-3 py-2 text-sm border rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
-              />
-              <button className="px-4 py-2 bg-primary text-white rounded-md hover:bg-primary/90 transition-colors">
-                <Mail className="h-4 w-4" />
-              </button>
-            </div>
-          </div>
         </div>
 
-        <div className="border-t mt-8 pt-8 text-center text-sm text-gray-600">
-          <p>© {currentYear} TalkTopic. All rights reserved.</p>
-          <p className="mt-2">
-            <Link href="/privacy" className="hover:text-primary transition-colors">
-              Privacy Policy
-            </Link>
-            {" · "}
-            <Link href="/terms" className="hover:text-primary transition-colors">
-              Terms of Service
-            </Link>
-          </p>
+        {/* Bottom Bar */}
+        <div className="border-t mt-12 pt-8">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-600">
+            <p>© {currentYear} TalkTopic. All rights reserved. A ministry dedicated to sharing biblical truth.</p>
+            <div className="flex gap-4">
+              <span>🌍 Available in 100+ languages</span>
+              <span>•</span>
+              <span>📖 2,000+ Questions Answered</span>
+            </div>
+          </div>
         </div>
       </div>
     </footer>

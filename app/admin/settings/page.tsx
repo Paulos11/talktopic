@@ -5,7 +5,6 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Select } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { Save, Globe, Bell, Shield, Database, Mail } from "lucide-react";
 import { TIMEZONES, LANGUAGES } from "@/lib/constants";
@@ -106,7 +105,7 @@ export default function SettingsPage() {
             </div>
             <div className="space-y-2">
               <Label htmlFor="timezone">Timezone</Label>
-              <Select
+              <select
                 id="timezone"
                 value={generalSettings.timezone}
                 onChange={(e) =>
@@ -118,12 +117,12 @@ export default function SettingsPage() {
                     {tz}
                   </option>
                 ))}
-              </Select>
+              </select>
             </div>
           </div>
           <div className="space-y-2">
             <Label htmlFor="language">Language</Label>
-            <Select
+            <select
               id="language"
               value={generalSettings.language}
               onChange={(e) =>
@@ -136,7 +135,7 @@ export default function SettingsPage() {
                   {lang.name}
                 </option>
               ))}
-            </Select>
+            </select>
           </div>
           <div className="flex justify-end">
             <Button>

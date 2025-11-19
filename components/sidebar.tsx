@@ -12,18 +12,55 @@ import {
   User,
   Menu,
   X,
+  BookOpen,
+  FolderOpen,
+  HelpCircle,
+  MessageSquare,
+  Globe,
+  Mail,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
 
-const navigation = [
-  { name: "Dashboard", href: "/admin", icon: LayoutDashboard },
-  { name: "Users", href: "/admin/users", icon: Users },
-  { name: "Content", href: "/admin/content", icon: FileText },
-  { name: "Analytics", href: "/admin/analytics", icon: BarChart3 },
-  { name: "Notifications", href: "/admin/notifications", icon: Bell },
-  { name: "Profile", href: "/admin/profile", icon: User },
-  { name: "Settings", href: "/admin/settings", icon: Settings },
+const navigationSections = [
+  {
+    title: "Overview",
+    items: [
+      { name: "Dashboard", href: "/admin", icon: LayoutDashboard },
+      { name: "Analytics", href: "/admin/analytics", icon: BarChart3 },
+    ],
+  },
+  {
+    title: "Content Management",
+    items: [
+      { name: "Questions", href: "/admin/content", icon: FileText },
+      { name: "Blog Posts", href: "/admin/blog", icon: BookOpen },
+      { name: "Categories", href: "/admin/categories", icon: FolderOpen },
+    ],
+  },
+  {
+    title: "Site Content",
+    items: [
+      { name: "FAQs", href: "/admin/faqs", icon: HelpCircle },
+      { name: "Testimonials", href: "/admin/testimonials", icon: MessageSquare },
+      { name: "Network Sites", href: "/admin/network-sites", icon: Globe },
+    ],
+  },
+  {
+    title: "User Management",
+    items: [
+      { name: "Users", href: "/admin/users", icon: Users },
+      { name: "Newsletter", href: "/admin/newsletter", icon: Mail },
+    ],
+  },
+  {
+    title: "Settings",
+    items: [
+      { name: "Site Config", href: "/admin/site-config", icon: Settings },
+      { name: "Notifications", href: "/admin/notifications", icon: Bell },
+      { name: "Profile", href: "/admin/profile", icon: User },
+    ],
+  },
 ];
 
 export function Sidebar() {
@@ -49,26 +86,35 @@ export function Sidebar() {
       </div>
 
       {/* Navigation */}
-      <nav className="flex-1 space-y-1 px-3 py-4 overflow-y-auto">
-        {navigation.map((item) => {
-          const isActive = pathname === item.href;
-          return (
-            <Link
-              key={item.name}
-              href={item.href}
-              onClick={() => setIsMobileOpen(false)}
-              className={cn(
-                "flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-colors",
-                isActive
-                  ? "bg-primary text-primary-foreground"
-                  : "text-sidebar-foreground hover:bg-sidebar-hover"
-              )}
-            >
-              <item.icon className="h-5 w-5 flex-shrink-0" />
-              <span>{item.name}</span>
-            </Link>
-          );
-        })}
+      <nav className="flex-1 px-3 py-4 overflow-y-auto">
+        {navigationSections.map((section) => (
+          <div key={section.title} className="mb-6">
+            <h3 className="px-3 mb-2 text-xs font-semibold text-gray-500 uppercase tracking-wider">
+              {section.title}
+            </h3>
+            <div className="space-y-1">
+              {section.items.map((item) => {
+                const isActive = pathname === item.href;
+                return (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    onClick={() => setIsMobileOpen(false)}
+                    className={cn(
+                      "flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-colors",
+                      isActive
+                        ? "bg-primary text-primary-foreground"
+                        : "text-sidebar-foreground hover:bg-sidebar-hover"
+                    )}
+                  >
+                    <item.icon className="h-5 w-5 flex-shrink-0" />
+                    <span>{item.name}</span>
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+        ))}
       </nav>
 
       {/* Footer */}

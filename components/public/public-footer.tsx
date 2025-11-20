@@ -86,33 +86,33 @@ export default function PublicFooter() {
             <h3 className="font-bold text-gray-900 mb-4">Resources</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="/categories" className="text-gray-600 hover:text-primary transition-colors">
-                  Browse Categories
+                <Link href="/archive" className="text-gray-600 hover:text-primary transition-colors">
+                  Browse All Questions
                 </Link>
               </li>
               <li>
-                <Link href="/topics" className="text-gray-600 hover:text-primary transition-colors">
-                  Topic Index
+                <Link href="/whats-new" className="text-gray-600 hover:text-primary transition-colors">
+                  What's New
+                </Link>
+              </li>
+              <li>
+                <Link href="/top-20" className="text-gray-600 hover:text-primary transition-colors">
+                  Top 20 Most Visited
+                </Link>
+              </li>
+              <li>
+                <Link href="/crucial-questions" className="text-gray-600 hover:text-primary transition-colors">
+                  Crucial Questions
+                </Link>
+              </li>
+              <li>
+                <Link href="/gospel" className="text-gray-600 hover:text-primary transition-colors">
+                  Gospel Presentations
                 </Link>
               </li>
               <li>
                 <Link href="/blog" className="text-gray-600 hover:text-primary transition-colors">
                   Blog & Articles
-                </Link>
-              </li>
-              <li>
-                <Link href="/search" className="text-gray-600 hover:text-primary transition-colors">
-                  Search Questions
-                </Link>
-              </li>
-              <li>
-                <Link href="/submit-question" className="text-gray-600 hover:text-primary transition-colors">
-                  Submit a Question
-                </Link>
-              </li>
-              <li>
-                <Link href="/faq" className="text-gray-600 hover:text-primary transition-colors">
-                  FAQ
                 </Link>
               </li>
             </ul>
@@ -128,28 +128,33 @@ export default function PublicFooter() {
                 </Link>
               </li>
               <li>
+                <Link href="/history" className="text-gray-600 hover:text-primary transition-colors">
+                  Our History
+                </Link>
+              </li>
+              <li>
+                <Link href="/statement-of-faith" className="text-gray-600 hover:text-primary transition-colors">
+                  Statement of Faith
+                </Link>
+              </li>
+              <li>
+                <Link href="/serve" className="text-gray-600 hover:text-primary transition-colors">
+                  Serve With Us
+                </Link>
+              </li>
+              <li>
+                <Link href="/promote" className="text-gray-600 hover:text-primary transition-colors">
+                  Promote TalkTopic
+                </Link>
+              </li>
+              <li>
+                <Link href="/citing" className="text-gray-600 hover:text-primary transition-colors">
+                  How to Cite
+                </Link>
+              </li>
+              <li>
                 <Link href="/contact" className="text-gray-600 hover:text-primary transition-colors">
                   Contact Us
-                </Link>
-              </li>
-              <li>
-                <Link href="/donate" className="text-gray-600 hover:text-primary transition-colors">
-                  Donate
-                </Link>
-              </li>
-              <li>
-                <Link href="/privacy" className="text-gray-600 hover:text-primary transition-colors">
-                  Privacy Policy
-                </Link>
-              </li>
-              <li>
-                <Link href="/terms" className="text-gray-600 hover:text-primary transition-colors">
-                  Terms of Service
-                </Link>
-              </li>
-              <li>
-                <Link href="/admin" className="text-gray-600 hover:text-primary transition-colors">
-                  Admin Login
                 </Link>
               </li>
             </ul>

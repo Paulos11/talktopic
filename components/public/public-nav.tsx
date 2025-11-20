@@ -25,9 +25,9 @@ export default function PublicNav() {
     { href: "/", label: "Home" },
     { href: "/categories", label: "Categories" },
     { href: "/topics", label: "Topic Index" },
+    { href: "/archive", label: "Browse All" },
     { href: "/blog", label: "Blog" },
     { href: "/about", label: "About" },
-    { href: "/contact", label: "Contact" },
   ];
 
   return (
